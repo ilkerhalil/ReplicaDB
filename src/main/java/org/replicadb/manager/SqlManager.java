@@ -7,6 +7,9 @@ import org.apache.logging.log4j.Logger;
 import org.replicadb.cli.ReplicationMode;
 import org.replicadb.cli.ToolOptions;
 
+import com.amazonaws.xray.sql.TracingConnection;
+import com.amazonaws.xray.sql.TracingStatement;
+
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -107,7 +110,7 @@ public abstract class SqlManager extends ConnManager {
                 LOG.error("DataSourceType must be Source or Sink");
             }
         }
-
+        this.connection = TracingConnection.decorate(connection);
         return this.connection;
     }
 
