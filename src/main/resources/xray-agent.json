@@ -1,0 +1,6 @@
+{
+    "daemonAddress": "127.0.0.1:2000", 
+    "tracingEnabled": true,
+    "pluginsEnabled": true,     
+    "collectSqlQueries": false 
+}
